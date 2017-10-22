@@ -1,0 +1,16 @@
+<%= render 'page/user_navbar' %>
+
+
+    <div class="row ri">
+      <div class="col l5 offset-l4 s12">
+<h1>Editing Unit</h1>
+
+<%= render 'form', unit: @unit %>
+<br>
+<%= link_to 'Show', @unit %> |
+
+ <%= link_to 'Back', units_path %>
+
+</div>
+</div>
+<%= render 'page/user_footer' %>

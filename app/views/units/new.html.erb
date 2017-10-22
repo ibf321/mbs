@@ -1,0 +1,11 @@
+<%= render 'page/user_navbar' %>
+
+<div class="row ri">
+  <div class="col l4 offset-l4 s12">
+    <h1>Nova Unidade</h1>
+<%= render 'form', unit: @unit %>
+<%= link_to 'Back', units_path %>
+</div>
+</div>
+
+<%= render 'page/user_footer' %>

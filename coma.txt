@@ -1,0 +1,3 @@
+rails g scaffold Unit name:string uf:string
+
+rails g scaffold User name:string username:string kind:integer status:integer unit:references

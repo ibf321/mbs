@@ -1,0 +1,27 @@
+"pt-BR":
+  activerecord:
+    models:
+      donor: "Doadores"
+      address: "Endereços"
+      educational: "Ações Educativas"
+      institution: "Instituições"
+      operating_unit: "Unidades Operacionais"
+      participant: "Participantes"
+      responsible: "Responsáveis"
+      user: "Usuários"
+    attributes:
+      user:
+        reason : "Razão Social"
+        fantasy : "Nome Fantazia"
+        kind : "Tipo de Doador"
+        cnpj_number : "CNPJ"
+        cpf : "CPF"
+        registration_date : "Data de Cadastro"
+        obs : "Observações"
+        phone : "Telefones"
+        status : "Situação"
+        disclosure : "Autoriza Divulgação"
+        address : "Endereço"
+        additional : "Dados Adcionail"
+        responsible : "Responsável"
+      donor:

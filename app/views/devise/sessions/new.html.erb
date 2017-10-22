@@ -1,0 +1,32 @@
+
+<div class="jumbotron">
+<br><br><br><br><br><br>
+   <div class="container col s6 center" >
+
+    <div class="container" align="center">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="panel panel-default container center">
+        <div class=" row">
+        <div class=" col s10">
+          <div class="form-group row">
+            <div class="input-group col s12">
+               <i class="material-icons prefix large ">account_circle</i>
+                <%= f.text_field :login, autofocus: true, placeholder: "Usuário", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group row"  align="center">
+            <div class="input-group col s12">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Senha", class: "form-control" %>
+            </div>
+
+            <div>
+            <br><br>
+              <%= f.submit "ENTRAR",class: 'btn btn-primary btn-lg btn-block'%>
+              <%end%>
+            </div>
+            </div>
+        </div>
+      </div>
+</div>
+</div>
