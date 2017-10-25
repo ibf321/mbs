@@ -33,6 +33,7 @@ class CreateInstitutions < ActiveRecord::Migration[5.1]
       t.references :unit, index: true
       t.references :address, index: true
       t.references :responsible, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

@@ -5,8 +5,10 @@ class CreateEducationals < ActiveRecord::Migration[5.1]
       t.date :realisation_data
       t.string :facilitator
       t.string :technician
+      t.string :local
       t.references :unit, index: true
       t.references :participants, index: true
+      t.references :user, index: true
 
       t.timestamps
     end
