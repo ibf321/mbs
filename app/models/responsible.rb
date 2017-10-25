@@ -1,5 +1,4 @@
 class Responsible < ApplicationRecord
-  belongs_to :donor
-  belongs_to :institution
-
+  has_one :donor
+  has_one :institution
 end

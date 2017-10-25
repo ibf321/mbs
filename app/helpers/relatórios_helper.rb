@@ -1,0 +1,2 @@
+module RelatóriosHelper
+end

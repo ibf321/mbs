@@ -7,8 +7,7 @@ class CreateResponsibles < ActiveRecord::Migration[5.1]
       t.string :function
       t.string :phone
       t.string :email
-      t.references :doner, index: true
-      t.references :institution, index: true
+      
       t.timestamps
     end
   end

@@ -1,3 +1,58 @@
+
+
+donor
+t.references :unit, index: true
+t.references :Address, index: true
+t.references :responsible, index: true
+_____
+
+addresse
+t.references :institution, index: true
+t.references :donor, index: true
+
+
+institutions
+t.references :unit, index: true
+t.references :responsible, index: true
+____________
+
+rails generate migration AddUnitRefToDonors unit:references
+rails generate migration add_unit_to_donor :references
+
+rails generate migration AddDonors unit:references
+
+
+
+
+
+Sacaffold-------------
+
 rails g scaffold Unit name:string uf:string
 
 rails g scaffold User name:string username:string kind:integer status:integer unit:references
+
+rails g scaffold Donor reason:string fantasy:string kind:integer cnpj:string cpf:string registration:date email:string obs:text phone:string status:integer disclosure:integer obs:text kind:string donation:string site:string activity:string unit:references
+
+rails g scaffold Institution status:integer cooperation:integer motive:string reason:string fantasy:string cnpj:string public:string activity:string genre:string email:string registration:date obs:text category:string smallmeals:integer largemeals:integer f0004:integer f0509:integer f1011:integer f1217:integer f1819:integer f2059:integer f6000:integer monday:integer tuesday:integer wednesday:integer thursday:integer friday:integer sunday:integer sunday:integer unit:references
+
+rails g scaffold Responsible name:string rg:string cpf:string function:string phone:string email:string unit:references
+
+rails g scaffold Address country: stringn city:string state:string neighborhood:string street:string number:string complement:string zip_code:string unit:references institution:references
+
+rails g scaffold Participant subject_matter:string realisation:date facilitator:string technician:string unit:references participant:references
+
+
+
+
+
+Migration------------------
+
+rails g scaffold Unit name:string uf:string
+
+rails g scaffold User name:string username:string kind:integer status:integer unit:references
+
+rails g scaffold Donor reason:string fantasy:string kind:integer cnpj:string cpf:string registration:date email:string obs:text phone:string status:integer disclosure:integer obs:text kind:string donation:string site:string activity:string unit:references
+
+rails g scaffold Institution status:integer cooperation:integer motive:string reason:string fantasy:string cnpj:string public:string activity:string genre:string email:string registration:date obs:text category:string smallmeals:integer largemeals:integer f0004:integer f0509:integer f1011:integer f1217:integer f1819:integer f2059:integer f6000:integer monday:integer tuesday:integer wednesday:integer thursday:integer friday:integer sunday:integer sunday:integer unit:references
+
+rails g scaffold User name:string rg:string cpf:string function:string phone:string email:string unit:references

@@ -18,6 +18,8 @@ class CreateDonors < ActiveRecord::Migration[5.1]
       t.string :site
       t.string :activity
       t.references :unit, index: true
+      t.references :address, index: true
+      t.references :responsible, index: true
 
       t.timestamps
     end

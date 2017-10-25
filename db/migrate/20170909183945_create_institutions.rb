@@ -1,7 +1,6 @@
 class CreateInstitutions < ActiveRecord::Migration[5.1]
   def change
     create_table :institutions do |t|
-      t.references :unit, index: true
       t.integer :status
       t.integer :cooperation
       t.string :motive
@@ -31,6 +30,9 @@ class CreateInstitutions < ActiveRecord::Migration[5.1]
       t.integer :friday
       t.integer :sunday
       t.integer :sunday
+      t.references :unit, index: true
+      t.references :address, index: true
+      t.references :responsible, index: true
 
       t.timestamps
     end

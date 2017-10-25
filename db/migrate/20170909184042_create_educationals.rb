@@ -6,7 +6,7 @@ class CreateEducationals < ActiveRecord::Migration[5.1]
       t.string :facilitator
       t.string :technician
       t.references :unit, index: true
-      t.references :participant, index: true
+      t.references :participants, index: true
 
       t.timestamps
     end

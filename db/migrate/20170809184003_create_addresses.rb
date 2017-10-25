@@ -9,9 +9,6 @@ class CreateAddresses < ActiveRecord::Migration[5.1]
       t.string :number
       t.string :complement
       t.string :zip_code
-      t.references :donor, index: true
-      t.references :institution, index: true
-      
 
       t.timestamps
     end

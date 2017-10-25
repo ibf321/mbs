@@ -5,7 +5,6 @@ class CreateParticipants < ActiveRecord::Migration[5.1]
       t.string :institution
       t.string :phone
       t.string :email
-      t.references :educational, index: true
       t.references :unit, index: true
 
 

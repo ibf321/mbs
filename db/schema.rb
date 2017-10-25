@@ -24,12 +24,8 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.string "number"
     t.string "complement"
     t.string "zip_code"
-    t.bigint "donor_id"
-    t.bigint "institution_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["donor_id"], name: "index_addresses_on_donor_id"
-    t.index ["institution_id"], name: "index_addresses_on_institution_id"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -49,8 +45,12 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.string "site"
     t.string "activity"
     t.bigint "unit_id"
+    t.bigint "address_id"
+    t.bigint "responsible_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_donors_on_address_id"
+    t.index ["responsible_id"], name: "index_donors_on_responsible_id"
     t.index ["unit_id"], name: "index_donors_on_unit_id"
   end
 
@@ -60,15 +60,14 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.string "facilitator"
     t.string "technician"
     t.bigint "unit_id"
-    t.bigint "participant_id"
+    t.bigint "participants_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_educationals_on_participant_id"
+    t.index ["participants_id"], name: "index_educationals_on_participants_id"
     t.index ["unit_id"], name: "index_educationals_on_unit_id"
   end
 
   create_table "institutions", force: :cascade do |t|
-    t.bigint "unit_id"
     t.integer "status"
     t.integer "cooperation"
     t.string "motive"
@@ -97,8 +96,13 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.integer "thursday"
     t.integer "friday"
     t.integer "sunday"
+    t.bigint "unit_id"
+    t.bigint "address_id"
+    t.bigint "responsible_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_institutions_on_address_id"
+    t.index ["responsible_id"], name: "index_institutions_on_responsible_id"
     t.index ["unit_id"], name: "index_institutions_on_unit_id"
   end
 
@@ -107,11 +111,9 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.string "institution"
     t.string "phone"
     t.string "email"
-    t.bigint "educational_id"
     t.bigint "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["educational_id"], name: "index_participants_on_educational_id"
     t.index ["unit_id"], name: "index_participants_on_unit_id"
   end
 
@@ -122,12 +124,8 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.string "function"
     t.string "phone"
     t.string "email"
-    t.bigint "doner_id"
-    t.bigint "institution_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doner_id"], name: "index_responsibles_on_doner_id"
-    t.index ["institution_id"], name: "index_responsibles_on_institution_id"
   end
 
   create_table "units", force: :cascade do |t|

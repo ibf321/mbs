@@ -1,30 +1,53 @@
 
 <%= render 'page/user_navbar' %>
-
+<br>
+<% if current_user%>
+  <h5 class="center teal-text " >Ben-Vindo <%=current_user.name%></h5>
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
-    <br><br>
-    <h2 class="header center orange-text">RELATÓRIOS</h2>
-    <div class="row center">
-      <h5 class="header col s12 light">Sistema de Informação Gerencial Mesa Brasil Sesc</h5>
-    </div>
-    <div class="row center">
-      <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-    </div>
-    <br><br>
+    <div class=" contener card teal lighten-1 row center">
+      <div class=" card indigo lighten-5 center">
+        <h3 class="center teal-text" >Relatórios</h3>
+      </div>
+      <a class="waves-effect waves-light btn-large  red darken-1  modal-trigger" href="#modal1"><i class="material-icons left">local_library</i>Ações Educativas</a>
+      <a class="waves-effect waves-light btn-large red darken-1 modal-trigger" href="#modal1"><i class="material-icons left">group</i>Doadores</a>
+      <a class="waves-effect waves-light btn-large red darken-1 modal-trigger" href="#modal1"><i class="material-icons right">assignment_ind</i>Instituições</a>
 
+      <a class="waves-effect waves-light btn-large  red darken-1 modal-trigger" href="#modal1"><i class="material-icons right">assignment_ind</i>Teste</a>
+      <br><br><br>
+
+      <ul id="dropdown2" class="dropdown-content grey-text">
+        <li><a href="#!">Por Unidade<span class="badge">40</span></a></li>
+        <li><a href="#!">Por Tipo<span class="new badge">20</span></a></li>
+      </ul>
+      <a class="waves-effect waves-light btn-large  red darken-1 modal-trigger dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">group</i>Doadores<i class="material-icons right">arrow_drop_down</i></a>
+      <br>
+      <div class="modal-footer">
+        <p>Dúvidas</p>
+      </div>
+    </div>
+    </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="section">
-
-
-    <div class="container-fluid">
-      ...
+  <% else %>
+    <div class="center">
+      <h2 class="teal-text">SIG-MBS</h2>
+        <h3  class="bleck-text text-lighten-2">Sistema Gerencial Mesa Brasil</h3>
+      <a class="waves-effect teal waves-light btn-large"<%= link_to 'Login', new_user_session_path %></a>
     </div>
+      <br><br><br>  <br><br> <br>
+  <% end %>
 
-  </div>
-  <br><br>
-</div>
+
+  <br><br><br>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal modal-fixed-foote">
+      <div class="">
+        <div class=" contener card teal lighten-3 row center">
+          <div class=" card indigo lighten-5 center">
+            <h3 class="center teal-text" >Ações Educativas</h3>
+          </div class="center">
+        </div>
+        </div>
+      </div>
 <%= render 'page/user_footer' %>
