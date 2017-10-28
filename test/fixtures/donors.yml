@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reason: MyString
+  fantasy: MyString
+  cnpj: MyString
+  cpf: MyString
+  disclosure: MyString
+  activity: MyString
+  donation: MyString
+  email: MyString
+  kind: 1
+  phone: MyString
+  r_data: 2017-10-28
+  site: MyString
+  status: 1
+  contry: MyString
+  state: MyString
+  city: MyString
+  neighborhood: MyString
+  street: MyString
+  number: 1
+  responsible: one
+  unit: one
+
+two:
+  reason: MyString
+  fantasy: MyString
+  cnpj: MyString
+  cpf: MyString
+  disclosure: MyString
+  activity: MyString
+  donation: MyString
+  email: MyString
+  kind: 1
+  phone: MyString
+  r_data: 2017-10-28
+  site: MyString
+  status: 1
+  contry: MyString
+  state: MyString
+  city: MyString
+  neighborhood: MyString
+  street: MyString
+  number: 1
+  responsible: two
+  unit: two

@@ -10,79 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910231811) do
+ActiveRecord::Schema.define(version: 20171028118232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: :cascade do |t|
-    t.string "country"
-    t.string "city"
-    t.string "state"
-    t.string "neighborhood"
-    t.string "street"
-    t.string "number"
-    t.string "complement"
-    t.string "zip_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "donors", force: :cascade do |t|
     t.string "reason"
     t.string "fantasy"
-    t.integer "kind"
-    t.string "cnpj_number"
+    t.string "cnpj"
     t.string "cpf"
-    t.date "registration_data"
-    t.string "email"
-    t.text "obs"
-    t.string "phone"
-    t.integer "status"
-    t.integer "disclosure"
-    t.string "kind_donor"
-    t.string "donation"
-    t.string "site"
+    t.string "disclosure"
     t.string "activity"
+    t.string "donation"
+    t.string "email"
+    t.integer "kind"
+    t.string "phone"
+    t.date "r_data"
+    t.string "site"
+    t.integer "status"
+    t.string "contry"
+    t.string "state"
+    t.string "city"
+    t.string "neighborhood"
+    t.string "street"
+    t.integer "number"
+    t.string "name"
+    t.string "function"
+    t.string "rg"
+    t.string "contacto"
     t.bigint "unit_id"
-    t.bigint "address_id"
-    t.bigint "responsible_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_donors_on_address_id"
-    t.index ["responsible_id"], name: "index_donors_on_responsible_id"
     t.index ["unit_id"], name: "index_donors_on_unit_id"
   end
 
   create_table "educationals", force: :cascade do |t|
     t.string "subject_matter"
-    t.date "realisation_data"
     t.string "facilitator"
-    t.string "technician"
-    t.bigint "unit_id"
-    t.bigint "participants_id"
+    t.date "rdata"
+    t.string "technical"
+    t.string "contry"
+    t.string "state"
+    t.string "city"
+    t.string "neighborhood"
+    t.string "street"
+    t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participants_id"], name: "index_educationals_on_participants_id"
-    t.index ["unit_id"], name: "index_educationals_on_unit_id"
+  end
+
+  create_table "educationals_participants", force: :cascade do |t|
+    t.bigint "participant_id"
+    t.bigint "educational_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["educational_id"], name: "index_educationals_participants_on_educational_id"
+    t.index ["participant_id"], name: "index_educationals_participants_on_participant_id"
   end
 
   create_table "institutions", force: :cascade do |t|
-    t.integer "status"
-    t.integer "cooperation"
-    t.string "motive"
-    t.string "reason"
     t.string "fantasy"
-    t.string "cnpj"
-    t.string "public"
     t.string "activity"
-    t.string "genre"
-    t.string "email"
-    t.date "registration_date"
-    t.text "obs"
     t.string "category"
-    t.integer "small_meals"
-    t.integer "large_meals"
+    t.string "cnpj"
+    t.integer "cooperation"
+    t.string "mcooperation"
+    t.string "email"
+    t.date "rdata"
     t.integer "f0004"
     t.integer "f0509"
     t.integer "f1011"
@@ -90,40 +85,41 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.integer "f1819"
     t.integer "f2059"
     t.integer "f6000"
-    t.integer "monday"
-    t.integer "tuesday"
-    t.integer "wednesday"
-    t.integer "thursday"
     t.integer "friday"
+    t.integer "genre"
+    t.integer "large_meals"
+    t.integer "small_meals"
+    t.integer "monday"
+    t.integer "motive"
+    t.integer "public"
+    t.integer "reason"
+    t.integer "atatus"
     t.integer "sunday"
+    t.integer "thursday"
+    t.integer "tuesday"
+    t.integer "wednerday"
+    t.string "contry"
+    t.string "state"
+    t.string "city"
+    t.string "neighborhood"
+    t.string "street"
+    t.integer "number"
+    t.string "name"
+    t.string "function"
+    t.string "rg"
+    t.string "cpf"
+    t.string "contacto"
     t.bigint "unit_id"
-    t.bigint "address_id"
-    t.bigint "responsible_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_institutions_on_address_id"
-    t.index ["responsible_id"], name: "index_institutions_on_responsible_id"
     t.index ["unit_id"], name: "index_institutions_on_unit_id"
   end
 
   create_table "participants", force: :cascade do |t|
     t.string "name"
     t.string "institution"
-    t.string "phone"
     t.string "email"
-    t.bigint "unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_participants_on_unit_id"
-  end
-
-  create_table "responsibles", force: :cascade do |t|
-    t.string "name"
-    t.string "rg"
-    t.string "cpf"
-    t.string "function"
-    t.string "phone"
-    t.string "email"
+    t.string "contacto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -137,10 +133,8 @@ ActiveRecord::Schema.define(version: 20170910231811) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "document"
-    t.integer "kind"
     t.integer "status"
-    t.text "notes"
+    t.integer "kind"
     t.bigint "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -161,4 +155,9 @@ ActiveRecord::Schema.define(version: 20170910231811) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "donors", "units"
+  add_foreign_key "educationals_participants", "educationals"
+  add_foreign_key "educationals_participants", "participants"
+  add_foreign_key "institutions", "units"
+  add_foreign_key "users", "units"
 end

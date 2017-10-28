@@ -23,7 +23,7 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
-  config.main_app_name = ["Sistema de Informação e Gestão", "Mesa Brasil Sesc"]
+  config.main_app_name = ["Sistema de Informação e Gestão", " Mesa Brasil Sesc"]
   config.navigation_static_links = {
     'Relatório' => '/'
   }
@@ -36,11 +36,7 @@ RailsAdmin.config do |config|
         field  :username
         field  :password
         field  :password_confirmation
-        field  :unit_id, :hidden do
-          default_value do
-            bindings[:view]._current_user.unit.id
-          end
-        end
+        field  :unit_id
       end
 
       edit do
@@ -62,22 +58,7 @@ RailsAdmin.config do |config|
     end
 
 
-    config.model Unit do
-      create do
-        field  :name
-        field  :uf
 
-      end
-
-      edit do
-        field  :name
-        field  :uf
-      end
-      show do
-        field  :name
-        field  :uf
-      end
-    end
   config.navigation_static_label = "Relatórios"
 
 

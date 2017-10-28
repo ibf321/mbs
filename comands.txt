@@ -1,0 +1,32 @@
+______Unidade______
+rails g model Unit name:string uf:string
+
+______Usuário______
+rails g model User name status:integer kind:integer
+
+______ Doador ______
+rails g model Donor reason:string fantasy:string cnpj:string cpf:string disclosure:string activity:string donation:string email:string kind:integer phone:string r_data:date site:string status:integer contry:string state:string city:string neighborhood:string street:string number:integer name:string function:string rg:string cpf:string email:string contacto:string  unit:references user:references
+
+______ Instituições ______
+rails g model Institution fantasy:string activity:string category:string cnpj:string cooperation:integer mcooperation:string email:string rdata:date f0004:integer f0509:integer f1011:integer f1217:integer f1819:integer f2059:integer f6000:integer friday:integer genre:integer large_meals:integer small_meals:integer monday:integer motive:integer public:integer reason:integer atatus:integer sunday:integer thursday:integer tuesday:integer wednerday:integer contry:string state:string city:string  neighborhood:string street:string number:integer unit:references user:references name:string function:string rg:string cpf:string email:string contacto:string
+
+______ Ações Educativas ______
+rails g model Educational subject_matter:string facilitator:string rdata:date technical:string contry:string state:string city:string  neighborhood:string street:string number:integer user:references unit:references
+
+______ Participantes ______
+rails g model Participant name:string institution:string email:string contacto:string
+
+______ Relação de Muitas Unidades para muitos Usuários ______
+rails g model units_users user:references unit:references
+
+______ Relação de Muitas Participantes para muitas ações educativas ______
+rails g model educationals_participants participant:references educational:references
+
+______ Rerferenciar usuário na instituição ______
+rails g migration AddUserToInstitution user:references
+
+______ Referenciar Usuário no Doador ______
+rails g migration AddUserToDonor user:references
+
+______ Referenciar Usuário nas ações Educativas ______
+rails g migration AddUserToEducational user:references

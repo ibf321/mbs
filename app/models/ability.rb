@@ -34,15 +34,15 @@ class Ability
         can :manage, Educational, unit_id: user.unit
 
       elsif user.kind == 'admin'
-        # can :manage, :all
+        can :manage, :all
         can :access, :rails_admin
-        can :dashboard
-        can :manage, Institution
-        can :manage, Donor
-        can :manage, Educational
-        can :manage, Unit
-        can :manage, Address
-        can :manage, User
+        # can :dashboard
+        # can :manage, Institution
+        # can :manage, Donor
+        # can :manage, Educational
+        # can :manage, Unit
+        # can :manage, User
+        # can :manage, Participant
 
       end
     end
